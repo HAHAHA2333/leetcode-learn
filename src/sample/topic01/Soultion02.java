@@ -26,27 +26,28 @@ public class Soultion02 {
     * */
 
     public TreeNode mergerTrees02(TreeNode t1,TreeNode t2){
-        Stack<TreeNode[]> stack = new Stack<>();
-        stack.push(new TreeNode[]{t1,t2});
-        while (!stack.isEmpty()){
-            TreeNode[] treeNodes = stack.pop();
-            if (treeNodes[0] == null || treeNodes[1] == null){
-                continue;
-            }
+       Stack<TreeNode[]> stack = new Stack<>();
+       stack.push(new TreeNode[]{t1,t2});
+       while (!stack.isEmpty()){
+           TreeNode[] treeNodes = stack.pop();
+           if (treeNodes[0] == null || treeNodes[1] == null){
+               continue;
+           }
 
-            treeNodes[0].value += treeNodes[1].value;
-            if (treeNodes[0].left == null){
-                treeNodes[0].left = treeNodes[1].left;
-            }
-            else {
-                stack.push(new TreeNode[]{treeNodes[0].left,treeNodes[1].left});
-            }
-            if (treeNodes[1].right == null){
-                treeNodes[1].right = treeNodes[0].right;
-            }else {
-                stack.push(new TreeNode[]{treeNodes[0].right,treeNodes[1].right});
-            }
-        }
+           treeNodes[0].value += treeNodes[1].value;
+           if (treeNodes[0].left == null){
+               treeNodes[0].left = treeNodes[1].left;
+           }
+           else {
+               stack.push(new TreeNode[]{t1.left,t2.left});
+           }
+           if (treeNodes[0].right == null){
+               treeNodes[0].right = treeNodes[1].right;
+           }
+           else {
+               stack.push(new TreeNode[]{t1.right,t2.right});
+           }
+       }
         return t1;
     }
 

@@ -24,10 +24,11 @@ public class Soultion01 {
     * */
 
     public TreeNode mergerTrees01(TreeNode t1,TreeNode t2){
-        if (t1 == null){
+        if(t1 == null){
             return t2;
         }
-        if (t2 == null){
+
+        if(t2 == null){
             return t1;
         }
         t1.value += t2.value;
